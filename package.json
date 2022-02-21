@@ -7,20 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
+    "deploy": "npm run build && git push origin `git subtree split --prefix dist master`:gh-pages --force"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
-    "husky": "^7.0.4",
     "svelte": "^3.44.0",
     "vite": "^2.8.0"
   },
   "dependencies": {
     "page": "^1.11.6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run build"
-    }
   }
 }
