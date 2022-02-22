@@ -15,4 +15,7 @@ jobs:
       run: npm ci
 
     - name: Deploy with gh-pages
-      run: npm run deploy
+      run: gh-pages -d dist -u "${{ USERNAME }} <${{ EMAIL }}>"
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        EMAIL: ${{ secrets.EMAIL }}
