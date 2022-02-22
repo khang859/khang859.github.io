@@ -1,21 +1,21 @@
-# name: CI
+name: CI
 
-# on:
-#   push:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ main ]
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - uses: actions/checkout@v2
+    steps:
+    - uses: actions/checkout@v2
 
-#     - name: Installing packages
-#       run: npm ci
+    - name: Installing packages
+      run: npm ci
 
-#     - name: Building
-#       run: npm run build
+    - name: Building
+      run: npm run build
 
-#     - name: Deploying the static website to gh-pages
-#       run: npm run deploy
+    - name: Deploying the static website to gh-pages
+      run: npm run deploy
