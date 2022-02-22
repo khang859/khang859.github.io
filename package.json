@@ -17,6 +17,7 @@
     "vite": "^2.8.0"
   },
   "dependencies": {
+    "dexie": "^3.2.1",
     "gh-pages": "^3.2.3",
     "page": "^1.11.6"
   }

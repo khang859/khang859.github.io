@@ -2,7 +2,7 @@
   export let currentPage = 'HOME';
 </script>
 
-<nav class="p-5 container">
+<nav class="p-5 container mx-auto">
   <ul class="flex flex-col sm:flex-row flex-wrap justify-center max-w-xs mx-auto">
     <li class="flex-1 text-center pb-2">
       <a 

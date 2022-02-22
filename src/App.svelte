@@ -24,7 +24,7 @@
 </script>
 
 <NavBar currentPage={currentPage}/>
-<main class="container mt-5">
+<main class="container mt-5 container flex flex-col items-center mx-auto">
   <svelte:component this={page} />
 </main>
 
