@@ -15,4 +15,4 @@ jobs:
       run: npm ci
 
     - name: Deploy with gh-pages
-      run: gh-pages -d dist -u "${{ secrets.USERNAME }} <${{ secrets.EMAIL }}>"
+      run: ./node_modules/.bin/gh-pages -d dist -u "${{ secrets.USERNAME }} <${{ secrets.EMAIL }}>"
