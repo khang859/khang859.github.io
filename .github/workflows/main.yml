@@ -14,5 +14,8 @@ jobs:
     - name: Installing packages
       run: npm ci
 
+    - name: Build
+      run: npm run build
+
     - name: Deploy with gh-pages
       run: ./node_modules/.bin/gh-pages -d dist -u "${{ secrets.USERNAME }} <${{ secrets.EMAIL }}>"
