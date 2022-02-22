@@ -4,18 +4,33 @@
   import Home from './components/Home.svelte';
   import Recipes from './components/Recipes.svelte';
   import LastKnow from './components/LastKnown.svelte';
+  import About from "./components/About.svelte";
 
   let page;
+  let currentPage = 'HOME';
 
-  router('/', () => page = Home);
+  router('/', () => {
+    page = Home;
+    currentPage = 'HOME';
+  });
+  router('/about', () => {
+    page = About;
+    currentPage = 'ABOUT';
+  });
   router('/app/recipes', () => page = Recipes);
   router('/app/last-known', () => page = LastKnow);
 
   router.start()
 </script>
 
-<NavBar />
+<NavBar currentPage={currentPage}/>
 <main class="container mt-5">
   <svelte:component this={page} />
 </main>
 
+<style>
+  :global(body) {
+    background-color: #f6f8fa;
+    height: 100vh;
+  }
+</style>
