@@ -5,6 +5,8 @@
   let recipeName;
   let recipeDesc;
 
+  let nameError = false;
+
   const toggleModal = () => {
     const modal = document.querySelector('[data-selector="recipe-modal"]');
     modal.classList.toggle('hidden')
@@ -12,7 +14,10 @@
 
   const addNewRecipe = () => {
 
-    if (recipeName === '' || !recipeName) return;
+    if (recipeName === '' || !recipeName) {
+      nameError = true;
+      return;
+    }
 
     const item = {
       name: recipeName,
@@ -43,6 +48,9 @@
   }
 
   $: list = getListFromDB();
+  $: {
+    if (recipeName !== '') nameError = false;
+  }
 
 </script>
 
@@ -108,7 +116,7 @@
             <div>
               <div class="p-4 flex flex-col">
                 <label for="recipeName" class="mb-2">Recipe Name:</label>
-                <input bind:value={recipeName} id="recipeName" type="text" placeholder="Enter Recipe Name" class="p-2 rounded w-96 border-solid border-2"/>
+                <input bind:value={recipeName} id="recipeName" type="text" placeholder="Enter Recipe Name" class="p-2 rounded w-96 border-solid border-2" class:border-red-500={nameError}/>
               </div>
             
               <div class="p-4 flex justify-start flex-col">
