@@ -2,6 +2,7 @@
   import { fade } from 'svelte/transition';
   import { db } from '../utils/indexeddb';
   import Button from './Button.svelte';
+  import ListItem from './ListItem.svelte';
 
   let newItem;
 
@@ -76,25 +77,14 @@
 {#await list then items}
   <ul class="p-4 mt-10 container flex flex-col items-center " in:fade={{delay: 500}} out:fade={{ duration: 500 }}>
     {#each items as item, i}
-      <li class="
-          p-4
-          container
-          flex
-          justify-center
-          flex-col
-          bg-white
-          drop-shadow-sm
-          md:flex-row
-          rounded
-          mb-4
-        ">
-        <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
-        <span class="flex-1 mb-4 md:ml-4">Last Known: {item.lastKnown}</span>
-        <div class="container flex-1 flex flex-col md:flex-row">
-        <Button onClick={logLastKnown} label='Refresh' lastKnown={item.lastKnown}/>
-        <Button onClick={deleteLastKnown} label='Delete' lastKnown={item.lastKnown}/>
+      <ListItem>
+          <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
+          <span class="flex-1 mb-4 md:ml-4">Last Known: {item.lastKnown}</span>
+          <div class="container flex-1 flex flex-col md:flex-row">
+          <Button onClick={logLastKnown} label='Refresh' lastKnown={item.lastKnown}/>
+          <Button onClick={deleteLastKnown} label='Delete' lastKnown={item.lastKnown}/>
         </div>
-      </li>
+      </ListItem>
     {/each}
   </ul>
 {/await}
