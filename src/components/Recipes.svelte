@@ -11,6 +11,9 @@
   }
 
   const addNewRecipe = () => {
+
+    if (recipeName === '' || !recipeName) return;
+
     const item = {
       name: recipeName,
       recipe: recipeDesc
@@ -105,12 +108,12 @@
             <div>
               <div class="p-4 flex flex-col">
                 <label for="recipeName" class="mb-2">Recipe Name:</label>
-                <input bind:value={recipeName} id="recipeName" type="text" placeholder="Enter Recipe Name" class="p-2 rounded w-96"/>
+                <input bind:value={recipeName} id="recipeName" type="text" placeholder="Enter Recipe Name" class="p-2 rounded w-96 border-solid border-2"/>
               </div>
             
               <div class="p-4 flex justify-start flex-col">
                 <label for="recipeDescription" class="mb-2">Recipe:</label>
-                <textarea bind:value={recipeDesc} rows="5" cols="50" id="recipeDescription" placeholder="Enter Recipe" class="p-2 rounded w-96"></textarea>
+                <textarea bind:value={recipeDesc} rows="10" cols="50" id="recipeDescription" placeholder="Enter Recipe" class="p-2 rounded w-96 border-solid border-2"></textarea>
               </div>
             </div>
           </div>
