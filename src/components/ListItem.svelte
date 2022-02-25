@@ -5,7 +5,10 @@
   justify-center
   flex-col
   bg-white
-  drop-shadow-sm
+  drop-shadow-md
+  border-2
+  border-slate-50
+  border-solid
   md:flex-row
   rounded
   mb-4

@@ -6,7 +6,6 @@
 
   let recipeName;
   let recipeDesc;
-  let isNew = true;
   let currentId;
   let nameError = false;
 
@@ -45,11 +44,9 @@
     if (record.length !== 1) {
       throw new Error('Something went wrong.')
     }
-    console.log('Edit:', record)
 
     recipeName = record[0].name;
     recipeDesc = record[0].recipe;
-    isNew = false;
     currentId = record[0].id;
     toggleModal();
   }
@@ -104,7 +101,7 @@
 </section>
 
 {#await list then items}
-  <ul class="p-4 mt-10 container flex flex-col" in:fade={{delay: 500}} out:fade={{ duration: 500 }}>
+  <ul class="p-4 mt-10 container flex flex-col">
     {#each items.reverse() as item}
       <li>
         <div class="
@@ -114,7 +111,11 @@
             justify-center
             flex-col
             bg-white
-            drop-shadow-sm
+            mt-8
+            drop-shadow-md
+            border-2
+            border-slate-50
+            border-solid
             rounded
             mb-4
           ">

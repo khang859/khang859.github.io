@@ -1,5 +1,4 @@
 <script>
-  import { fade } from 'svelte/transition';
   import { db } from '../utils/indexeddb';
   import Button from './Button.svelte';
   import ListItem from './ListItem.svelte';
@@ -75,7 +74,7 @@
 </div>
 
 {#await list then items}
-  <ul class="p-4 mt-10 container flex flex-col items-center " in:fade={{delay: 500}} out:fade={{ duration: 500 }}>
+  <ul class="p-4 mt-10 container flex flex-col items-center ">
     {#each items as item, i}
       <ListItem>
           <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
