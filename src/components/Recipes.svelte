@@ -189,34 +189,3 @@
     <button on:click={toggleModal} type="button" class="mt-4 md:mt-0 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
   </div>
 </Modal>
-
-<style>
-  :global(.recipe-styles h1) {
-    font-weight: bold;
-    font-size: 3rem;
-  }
-
-  :global(.recipe-styles h2) {
-    font-weight: bold;
-    font-size: 2rem;
-  }
-
-  :global(.recipe-styles h3) {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-
-  :global(.recipe-styles ul) {
-    list-style: disc;
-    margin-top: 1rem;
-    margin-left: 1.5rem;
-  }
-
-  :global(.recipe-styles li) {
-    margin: 0.5rem 0;
-  }
-
-  :global(.recipe-styles p) {
-    margin: 1rem 0;
-  }
-</style>
