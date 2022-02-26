@@ -5,7 +5,8 @@
   import Recipes from './components/Recipes.svelte';
   import LastKnow from './components/LastKnown.svelte';
   import About from "./components/About.svelte";
-import RandomApps from "./components/RandomApps.svelte";
+  import RandomApps from "./components/RandomApps.svelte";
+  import './styles.css';
 
   let page;
   let currentPage = 'HOME';
@@ -32,6 +33,7 @@ import RandomApps from "./components/RandomApps.svelte";
 
 <NavBar currentPage={currentPage}/>
 <main class="
+  prose
   container
   flex
   flex-col
@@ -44,7 +46,7 @@ import RandomApps from "./components/RandomApps.svelte";
   min-h-screen">
   <svelte:component this={page} />
 </main>
-<footer class="flex mx-auto justify-center p-5 container mx-auto my-4 bg-white rounded drop-shadow-md">
+<footer class="prose flex mx-auto justify-center p-5 container mx-auto my-4 bg-white rounded drop-shadow-md">
   Made with love by Khang Nguyen
 </footer>
 
