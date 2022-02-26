@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.recipe-styles h1 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.recipe-styles h2 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.recipe-styles h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.recipe-styles ul {
+  list-style: disc;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
+
+.recipe-styles li {
+  margin: 0.5rem 0;
+}
+
+.recipe-styles p {
+  margin: 1rem 0;
+}

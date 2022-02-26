@@ -140,7 +140,7 @@
 </div>
 
 {#await list then items}
-  <ul class="p-4 mt-10 container flex flex-col">
+  <ul class="p-4 mt-10 container flex flex-col list-none">
     {#each items as item}
       <li>
         <div class="
@@ -159,7 +159,7 @@
             mb-4
           ">
           <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
-          <div class="flex-1 mb-4 md:ml-4">{@html markdown.toHTML(item.recipe)}</div>
+          <div class="recipe-styles flex-1 mb-4 md:ml-4">{@html markdown.toHTML(item.recipe)}</div>
           <div class="flex justify-end">
             <button on:click={() => { editRecipe(item) }} class='mr-4 bg-sky-700 hover:bg-sky-600 px-4 py-2 text-white rounded transition-colors'>Edit</button>
             <button on:click={() => { removeRecipe(item) }} class='mr-4 bg-red-700 hover:bg-red-600 px-4 py-2 text-white rounded transition-colors'>Remove</button>
@@ -190,3 +190,33 @@
   </div>
 </Modal>
 
+<style>
+  :global(.recipe-styles h1) {
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  :global(.recipe-styles h2) {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  :global(.recipe-styles h3) {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  :global(.recipe-styles ul) {
+    list-style: disc;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+  }
+
+  :global(.recipe-styles li) {
+    margin: 0.5rem 0;
+  }
+
+  :global(.recipe-styles p) {
+    margin: 1rem 0;
+  }
+</style>

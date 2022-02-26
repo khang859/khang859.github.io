@@ -6,7 +6,6 @@
   import LastKnow from './components/LastKnown.svelte';
   import About from "./components/About.svelte";
   import RandomApps from "./components/RandomApps.svelte";
-  import './styles.css';
 
   let page;
   let currentPage = 'HOME';
@@ -33,7 +32,6 @@
 
 <NavBar currentPage={currentPage}/>
 <main class="
-  prose
   container
   flex
   flex-col
@@ -46,7 +44,7 @@
   min-h-screen">
   <svelte:component this={page} />
 </main>
-<footer class="prose flex mx-auto justify-center p-5 container mx-auto my-4 bg-white rounded drop-shadow-md">
+<footer class="flex mx-auto justify-center p-5 container mx-auto my-4 bg-white rounded drop-shadow-md">
   Made with love by Khang Nguyen
 </footer>
 

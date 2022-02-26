@@ -3,7 +3,7 @@
   const setHightlight = () =>'border-2 border-solid border-emerald-500';
 </script>
 
-<nav class="prose p-5 container mx-auto bg-white rounded my-4 drop-shadow-md">
+<nav class="p-5 container mx-auto bg-white rounded my-4 drop-shadow-md">
   <ul class="flex flex-col sm:flex-row flex-wrap justify-center mx-auto w-full">
     <li class="flex flex-1 text-center justify-center">
       <a 
