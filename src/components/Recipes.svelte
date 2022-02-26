@@ -136,18 +136,18 @@
     <div>
       <div class="p-4 flex flex-col">
         <label for="recipeName" class="mb-2">Recipe Name:</label>
-        <input bind:value={recipeName} id="recipeName" type="text" placeholder="Enter Recipe Name" class="p-2 rounded w-96 border-solid border-2" class:border-red-500={nameError}/>
+        <input bind:value={recipeName} id="recipeName" type="text" placeholder="Enter Recipe Name" class="p-2 rounded w-full border-solid border-2" class:border-red-500={nameError}/>
       </div>
 
       <div class="p-4 flex justify-start flex-col">
         <label for="recipeDescription" class="mb-2">Recipe:</label>
-        <textarea bind:value={recipeDesc} rows="10" cols="50" id="recipeDescription" placeholder="Enter Recipe" class="p-2 rounded w-96 border-solid border-2"></textarea>
+        <textarea bind:value={recipeDesc} rows="10" cols="50" id="recipeDescription" placeholder="Enter Recipe" class="p-2 rounded w-full border-solid border-2"></textarea>
       </div>
     </div>
   </div>
   <div slot="footer">
     <button on:click={addNewRecipe} type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-emerald-500 text-base font-medium text-white hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">{currentId ? 'Update' : 'Create'}</button>
-    <button on:click={toggleModal} type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
+    <button on:click={toggleModal} type="button" class="mt-4 md:mt-0 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
   </div>
 </Modal>
 

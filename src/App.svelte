@@ -33,7 +33,6 @@ import RandomApps from "./components/RandomApps.svelte";
 <NavBar currentPage={currentPage}/>
 <main class="
   container
-  mt-5
   flex
   flex-col
   items-center
@@ -45,6 +44,9 @@ import RandomApps from "./components/RandomApps.svelte";
   min-h-screen">
   <svelte:component this={page} />
 </main>
+<footer class="flex mx-auto justify-center p-5 container mx-auto my-4 bg-white rounded drop-shadow-md">
+  Made with love by Khang Nguyen
+</footer>
 
 <style>
   :global(body) {
