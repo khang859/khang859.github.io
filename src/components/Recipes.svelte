@@ -1,13 +1,30 @@
 <script>
   import { recipeDb } from '../utils/indexeddb';
-  import { fade } from 'svelte/transition';
   import { markdown } from 'markdown';
   import Modal from './Modal.svelte';
+  import Fuse from 'fuse.js'
 
   let recipeName;
   let recipeDesc;
   let currentId;
+  let searchBox;
   let nameError = false;
+
+  const getListFromDB = async () => {
+    const items = await recipeDb.recipe.reverse().toArray();
+
+    if (searchBox) {
+      const fuzzySearchOptions = {
+        keys: ['name', 'recipe']
+      }
+      const fuse = new Fuse(items, fuzzySearchOptions)
+      return fuse.search(searchBox).map(item => item.item);
+    }
+    
+    return items;
+  }
+
+  let list = getListFromDB();
 
   const toggleModal = () => {
     const modal = document.querySelector('[data-selector="recipe-modal"]');
@@ -34,7 +51,6 @@
       await recipeDb.recipe.add(item);
     }
 
-
     list = getListFromDB();
     toggleModal();
   }
@@ -60,10 +76,6 @@
     list = getListFromDB();
   }
 
-  const getListFromDB = async () => {
-    return await recipeDb.recipe.toArray();
-  }
-
   const createNewRecipeBtn = () => {
     recipeName = '';
     recipeDesc = '';
@@ -72,11 +84,28 @@
     toggleModal();
   }
 
-  $: list = getListFromDB();
-  $: {
-    if (recipeName !== '') nameError = false;
+  let searchTimer;
+  let typingInterval = 500;
+
+  const searchBoxKeyup = () => {
+    clearTimeout(searchTimer)
+    searchTimer = setTimeout(userFinishedTyping, typingInterval);
   }
 
+  const searchBoxKeydown = () => {
+    clearTimeout(searchTimer)
+  }
+
+  const userFinishedTyping = () => {
+    list = getListFromDB();
+  }
+
+  const clearSearchBox = () => {
+    searchBox = undefined;
+    list = getListFromDB();
+  }
+
+  $: if (recipeName !== '') nameError = false;
 </script>
 
 <section>
@@ -100,9 +129,19 @@
     " on:click={createNewRecipeBtn}>+ Add new recipe</button>
 </section>
 
+<div class="flex justify-center flex-col align-middle	mt-4 w-3/4 sm:flex-row">
+<label for="search1" class="invisible w-0">Search:</label>
+<input on:keyup={searchBoxKeyup} on:keydown={searchBoxKeydown} bind:value={searchBox} id="search1" type="text" placeholder="Search" class="p-2 rounded w-full sm:w-3/4 border-solid border-2"/>
+{#if searchBox}
+  <button on:click={clearSearchBox} class="items-center	w-full mt-4 sm:mt-0 flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-sky-500 text-base font-medium text-white hover:text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-1/3 sm:text-sm">
+    Clear Search
+  </button>
+{/if}
+</div>
+
 {#await list then items}
   <ul class="p-4 mt-10 container flex flex-col">
-    {#each items.reverse() as item}
+    {#each items as item}
       <li>
         <div class="
             p-4
