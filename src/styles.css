@@ -30,3 +30,9 @@
 .recipe-styles p {
   margin: 1rem 0;
 }
+
+.recipe-styles ol {
+  list-style: decimal;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
