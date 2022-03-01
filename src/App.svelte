@@ -24,8 +24,14 @@
     currentPage = 'RANDOM_APPS';
   })
 
-  router('/app/recipes', () => page = Recipes);
-  router('/app/last-known', () => page = LastKnow);
+  router('/app/recipes', () => {
+    currentPage = 'RANDOM_APPS';
+    page = Recipes
+  });
+  router('/app/last-known', () => {
+    currentPage = 'RANDOM_APPS';
+    page = LastKnow
+  });
 
   router.start()
 </script>
