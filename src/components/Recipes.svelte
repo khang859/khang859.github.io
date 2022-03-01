@@ -181,9 +181,19 @@ import { beforeUpdate, tick } from 'svelte';
           <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
           <div class="recipe-styles flex-1 mb-4 md:ml-4">{@html markdown.toHTML(item.recipe)}</div>
           <div class="flex justify-end">
-            <button on:click={() => { editRecipe(item) }} class='mr-4 bg-sky-700 hover:bg-sky-600 px-4 py-2 text-white rounded transition-colors'>Edit</button>
+            <button on:click={() => {
+              removeItemId = undefined
+              editRecipe(item) 
+            }} class='mr-4 bg-sky-700 hover:bg-sky-600 px-4 py-2 text-white rounded transition-colors'>Edit</button>
             
             {#if removeItemId == item.id}
+              <button 
+                on:click={() => {
+                  removeItemId = undefined
+                }}
+                class='mr-4 bg-emerald-600 hover:bg-emerald-500 px-4 py-2 text-white rounded transition-colors'>
+                  Cancel
+                </button>
               <button on:click={() => {
                 removeRecipe(item);
               }} data-confirm-button={item.id} class='disabled:bg-slate-500 mr-4 bg-red-700 hover:bg-red-600 px-4 py-2 text-white rounded transition-colors'>Confirm Removal</button>
