@@ -3,12 +3,14 @@
   import { markdown } from 'markdown';
   import Modal from './Modal.svelte';
   import Fuse from 'fuse.js'
+import { beforeUpdate, tick } from 'svelte';
 
   let recipeName;
   let recipeDesc;
   let currentId;
   let searchBox;
   let nameError = false;
+  let removeItemId;
 
   const getListFromDB = async () => {
     const items = await recipeDb.recipe.reverse().toArray();
@@ -67,13 +69,18 @@
     toggleModal();
   }
 
+  const removeRecipeConfirm = (id) => {
+    removeItemId = id;
+  }
+
   const removeRecipe = async (recipe) => {
     const record = await recipeDb.recipe.where(recipe).toArray();
     if (record.length !== 1) {
-      throw new Error('Something went wrong.')
+       throw new Error('Something went wrong.')
     }
     await recipeDb.recipe.delete(record[0].id);
     list = getListFromDB();
+    removeItemId = undefined;
   }
 
   const createNewRecipeBtn = () => {
@@ -104,6 +111,19 @@
     searchBox = undefined;
     list = getListFromDB();
   }
+  
+  beforeUpdate(async () => {
+    await tick();
+    const btn = document.querySelector(`[data-confirm-button="${removeItemId}"]`)
+
+    if (btn) {
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.disabled = false;
+      }, 1000)
+    }
+  })
 
   $: if (recipeName !== '') nameError = false;
 </script>
@@ -142,7 +162,7 @@
 {#await list then items}
   <ul class="p-4 mt-10 container flex flex-col list-none">
     {#each items as item}
-      <li>
+      <li data-list-item-selector={item.id}>
         <div class="
             p-4
             container
@@ -162,7 +182,18 @@
           <div class="recipe-styles flex-1 mb-4 md:ml-4">{@html markdown.toHTML(item.recipe)}</div>
           <div class="flex justify-end">
             <button on:click={() => { editRecipe(item) }} class='mr-4 bg-sky-700 hover:bg-sky-600 px-4 py-2 text-white rounded transition-colors'>Edit</button>
-            <button on:click={() => { removeRecipe(item) }} class='mr-4 bg-red-700 hover:bg-red-600 px-4 py-2 text-white rounded transition-colors'>Remove</button>
+            
+            {#if removeItemId == item.id}
+              <button on:click={() => {
+                removeRecipe(item);
+              }} data-confirm-button={item.id} class='disabled:bg-slate-500 mr-4 bg-red-700 hover:bg-red-600 px-4 py-2 text-white rounded transition-colors'>Confirm Removal</button>
+            {:else}
+              <button on:click={() => {
+                removeRecipeConfirm(item.id);
+              }} class='mr-4 bg-red-700 hover:bg-red-600 px-4 py-2 text-white rounded transition-colors'>Remove</button>
+            {/if}
+            
+            
           </div>
         </div>
       </li>
