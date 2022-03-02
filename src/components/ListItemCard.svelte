@@ -4,7 +4,7 @@
   export let link;
 </script>
 
-<div class="shadow-sm border-2 border-solid rounded p-4 max-w-3xl flex flex-col">
+<div class="shadow-sm rounded p-4 max-w-3xl flex flex-col">
   <h3 class="text-xl font-semibold">{heading}</h3>
   <p class="mt-2">{description}</p>
   <a class="
