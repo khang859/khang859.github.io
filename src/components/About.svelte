@@ -16,13 +16,13 @@
 
   <div class="mt-8">
     <h2 class="text-xl font-semibold">Personally: </h2>
-    <p class="mt-2">I watch way too much anime and play too many video games, luckily my wife also play videos and watch anime, win win.</p>
+    <p class="mt-2">I watch way too much anime and play too many video games, luckily my wife also play videos games and watch anime, win win.</p>
     
   </div>
 </section>
 
 <section class="w-full mt-20 flex flex-col justify-center">
-  <h2 class="flex justify-center">Heres an image of me doing something incredibly cool to fill up the space of this page.</h2>
+  <h2 class="flex justify-center">Heres an image of me doing something cool to fill up the space of this page.</h2>
   <div class="max-w-lg w-full flex mx-auto mt-4 justify-center">
     <InstantAnalysisIcon />
   </div>
