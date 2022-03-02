@@ -16,7 +16,7 @@
 
   <div class="mt-8">
     <h2 class="text-xl font-semibold">Personally: </h2>
-    <p class="mt-2">I watch way too much anime and play too many video games, luckily my wife also play videos games and watch anime, win win.</p>
+    <p class="mt-2">I watch way too much anime and play too many video games, luckily my wife also play video games and watch anime, win win.</p>
     
   </div>
 </section>
