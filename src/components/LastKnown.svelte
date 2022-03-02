@@ -54,8 +54,12 @@
 
 </script>
 
+<section>
 <div class="container flex justify-center w-100">
-  <input class="px-4 py-2" type="text" placeholder="New item name" bind:value={newItem} on:keyup={handleEnterKey}/>
+  <input class="
+    px-4 py-2
+    rounded shadow-md px-4 py-2 border-2 border-solid border-emerald-500
+    " type="text" placeholder="New item name" bind:value={newItem} on:keyup={handleEnterKey}/>
   <button 
     class="
       ml-4
@@ -65,25 +69,32 @@
       py-2
       rounded
       transition-colors
-      hover:bg-emerald-500
-      hover:text-stone-50
+      bg-emerald-500
+      text-stone-50
+      hover:bg-emerald-700
       hover:drop-shadow-md
       duration-250
     "
     on:click={handleOnclick}>Create</button>
 </div>
+</section>
 
-{#await list then items}
-  <ul class="p-4 mt-10 container flex flex-col items-center ">
-    {#each items as item, i}
-      <ListItem>
-          <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
-          <span class="flex-1 mb-4 md:ml-4">Last Known: {item.lastKnown}</span>
-          <div class="container flex-1 flex flex-col md:flex-row">
-          <Button onClick={logLastKnown} label='Refresh' lastKnown={item.lastKnown}/>
-          <Button onClick={deleteLastKnown} label='Delete' lastKnown={item.lastKnown}/>
-        </div>
-      </ListItem>
-    {/each}
-  </ul>
-{/await}
+<section class="w-full">
+  {#await list then items}
+    <ul class="p-4 mt-10 container flex flex-col items-center ">
+      {#each items as item, i}
+        <ListItem>
+            <h3 class="flex-1 mb-4 font-semibold text-2xl">{item.name}</h3>
+            <div class="flex-1 mb-4 md:ml-4">
+              <p>Last Known:</p>
+              <p>{item.lastKnown}</p>
+            </div>
+            <div class="container flex-1 flex flex-col md:flex-row">
+            <Button onClick={logLastKnown} label='Refresh' lastKnown={item.lastKnown}/>
+            <Button onClick={deleteLastKnown} label='Delete' lastKnown={item.lastKnown}/>
+          </div>
+        </ListItem>
+      {/each}
+    </ul>
+  {/await}
+</section>

@@ -45,7 +45,7 @@
   mx-auto
   bg-white
   rounded
-  p-4
+  p-8
   drop-shadow-md
   min-h-screen">
   <svelte:component this={page} />
