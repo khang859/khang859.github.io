@@ -1,11 +1,11 @@
 <script>
   import router from "page"
   import NavBar from "./components/NavBar.svelte";
-  import Home from './components/Home.svelte';
-  import Recipes from './components/Recipes.svelte';
-  import LastKnow from './components/LastKnown.svelte';
-  import About from "./components/About.svelte";
-  import RandomApps from "./components/RandomApps.svelte";
+  import Home from './pages/Home.svelte';
+  import Recipes from './pages/Recipes.svelte';
+  import LastKnow from './pages/LastKnown.svelte';
+  import About from "./pages/About.svelte";
+  import RandomApps from "./pages/RandomApps.svelte";
 
   let page;
   let currentPage = 'HOME';

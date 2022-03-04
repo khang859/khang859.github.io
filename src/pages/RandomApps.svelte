@@ -1,6 +1,6 @@
 <script>
   import router from "page";
-  import Card from './Card.svelte';
+  import Card from '../components/Card.svelte';
 </script>
 
 <section class="text-center mb-8">

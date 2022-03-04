@@ -1,7 +1,7 @@
 <script>
   import { db } from '../utils/indexeddb';
-  import Button from './Button.svelte';
-  import ListItem from './ListItem.svelte';
+  import Button from '../components/Button.svelte';
+  import ListItem from '../components/ListItem.svelte';
 
   let newItem;
 

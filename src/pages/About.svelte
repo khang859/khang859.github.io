@@ -1,5 +1,5 @@
 <script>
-  import InstantAnalysisIcon from './InstantAnalysisIcon.svelte';
+  import InstantAnalysisIcon from '../components/InstantAnalysisIcon.svelte';
 </script>
 <section>
   <h1 class="text-2xl font-bold my-4">So you want to learn more about me, I am flattered</h1>

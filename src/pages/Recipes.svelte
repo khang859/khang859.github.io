@@ -1,9 +1,9 @@
 <script>
   import { recipeDb } from '../utils/indexeddb';
   import { markdown } from 'markdown';
-  import Modal from './Modal.svelte';
+  import Modal from '../components/Modal.svelte';
   import Fuse from 'fuse.js'
-import { beforeUpdate, tick } from 'svelte';
+  import { beforeUpdate, tick } from 'svelte';
 
   let recipeName;
   let recipeDesc;

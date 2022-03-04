@@ -1,5 +1,5 @@
 <script>
-  import ListItemCard from "./ListItemCard.svelte";
+  import ListItemCard from "../components/ListItemCard.svelte";
   import projects from '../data/projects';
 </script>
 <section class="w-full">
