@@ -14,7 +14,8 @@
 
   let startDate;
   let endDate;
-  let totalUnits = 0;
+  let totalUnits = 0.0;
+  let totalHours = 0.0;
 
   const addDays = (date, days) => {
     const result = new Date(date);
@@ -23,7 +24,7 @@
   }
 
   const handleInput = (day, value) => {
-    dayOfWeekValues[day] = parseInt(value);
+    dayOfWeekValues[day] = parseFloat(value);
   }
 
   const handleEndDate = (event) => {
@@ -38,14 +39,14 @@
       const diffTime = Math.abs(endDate - startDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       
-      let totalHours = 0.0;
+      let hours = 0;
       for(let i = 0; i <= diffDays; i++) {
         const nextDay = addDays(startDate, i);
-        const val = dayOfWeekValues[nextDay.getDay()];
-        totalHours += val;
+        hours += dayOfWeekValues[nextDay.getDay()];
       }
 
-      totalUnits = totalHours * 4.0;
+      totalHours = hours;
+      totalUnits = hours * 4.0;
     }
 
 </script>
@@ -65,11 +66,12 @@
     <DateInput handleInput={handleStartDate} label='Start Date:' />
     <DateInput handleInput={handleEndDate} label='End Date:' />
     <div class="mt-8 text-2xl font-bold">Total <span class="text-emerald-600">{totalUnits}</span> units</div>
+    <div class="mt-2 text-2xl font-bold">Total <span class="text-emerald-600">{totalHours}</span> hours</div>
   </div>
 </section>
 
 <style>
   .fit-content {
-    grid-template-rows: fit-content(100px) fit-content(100px) 1fr;
+    grid-template-rows: fit-content(100px) fit-content(100px) 1fr 1fr;
   }
 </style>

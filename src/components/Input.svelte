@@ -19,7 +19,7 @@
 
 <div class="grid grid-cols-3 gap-4 max-w-xs">
   <label for={inputId}>{label}</label>
-  <input id={inputId} type={type} on:change={(event) => handleInput(day, event.target.value)} class="px-2 rounded border-2 border-emerald-700"/>
+  <input min="0" id={inputId} type={type} on:change={(event) => handleInput(day, event.target.value)} class="px-2 rounded border-2 border-emerald-700"/>
   {#if suffix}
     <span>{suffix}</span>
   {/if}
