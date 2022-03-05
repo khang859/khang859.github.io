@@ -64,7 +64,6 @@
   <div class="grid gap-2 fit-content sm:justify-center">
     <DateInput handleInput={handleStartDate} label='Start Date:' />
     <DateInput handleInput={handleEndDate} label='End Date:' />
-    <button on:click={reset}>Reset</button>
     <div class="mt-8 text-2xl font-bold">Total <span class="text-emerald-600">{totalUnits}</span> units</div>
   </div>
 </section>
