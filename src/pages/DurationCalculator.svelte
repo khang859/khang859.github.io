@@ -1,25 +1,15 @@
 <script>
-
   import DateInput from "../components/DateInput.svelte";
   import Input from "../components/Input.svelte";
 
-  const dayOfWeek = {
-    0: 'Monday',
-    1: 'Tuesday',
-    2: 'Wednesday',
-    3: 'Thursday',
-    4: 'Friday',
-    5: 'Satureday',
-    6: 'Sunday'
-  }
   const dayOfWeekValues = {
-    0: 0,
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0
+    0: 0.0,
+    1: 0.0,
+    2: 0.0,
+    3: 0.0,
+    4: 0.0,
+    5: 0.0,
+    6: 0.0
   }
 
   let startDate;
@@ -48,14 +38,14 @@
       const diffTime = Math.abs(endDate - startDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       
-      let totalHours = 0;
-      for(let i = 0; i < diffDays; i++) {
+      let totalHours = 0.0;
+      for(let i = 0; i <= diffDays; i++) {
         const nextDay = addDays(startDate, i);
         const val = dayOfWeekValues[nextDay.getDay()];
         totalHours += val;
       }
 
-      totalUnits = totalHours * 4;
+      totalUnits = totalHours * 4.0;
     }
 
 </script>
@@ -74,6 +64,7 @@
   <div class="grid gap-2 fit-content sm:justify-center">
     <DateInput handleInput={handleStartDate} label='Start Date:' />
     <DateInput handleInput={handleEndDate} label='End Date:' />
+    <button on:click={reset}>Reset</button>
     <div class="mt-8 text-2xl font-bold">Total <span class="text-emerald-600">{totalUnits}</span> units</div>
   </div>
 </section>
