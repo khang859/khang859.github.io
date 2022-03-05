@@ -26,4 +26,13 @@
       description="Need some place to keep all your recipes? and be able to search it?"
     />
   </div>
+  <div class="flex flex-1 w-full m-2 sm:w-1/2 justify-center">
+    <Card link={{
+        url: '/app/duration-calculator',
+        label: 'Go to Duration Calculator'
+      }}
+      heading='Duration Calculator'
+      description="How many hours in this length of time time is this?!"
+    />
+  </div>
 </section>

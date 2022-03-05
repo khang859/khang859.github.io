@@ -6,6 +6,7 @@
   import LastKnow from './pages/LastKnown.svelte';
   import About from "./pages/About.svelte";
   import RandomApps from "./pages/RandomApps.svelte";
+  import DurationCalculator from "./pages/DurationCalculator.svelte";
 
   let page;
   let currentPage = 'HOME';
@@ -28,9 +29,15 @@
     currentPage = 'RANDOM_APPS';
     page = Recipes
   });
+
   router('/app/last-known', () => {
     currentPage = 'RANDOM_APPS';
     page = LastKnow
+  });
+
+  router('/app/duration-calculator', () => {
+    currentPage = 'RANDOM_APPS';
+    page = DurationCalculator;
   });
 
   router.start()
