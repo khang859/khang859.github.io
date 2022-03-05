@@ -61,8 +61,8 @@
 </script>
 
 <h2 class="text-2xl font-bold mb-12">If you don't know what this is, its not for you, sorry!</h2>
-<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 container">
-  <div class="grid gap-2">
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-4 container max-w-3xl">
+  <div class="grid gap-2 sm:justify-center">
     <Input suffix='hours' handleInput={handleInput} label='Monday' day={0} type='number'/>
     <Input suffix='hours' handleInput={handleInput} label='Tuesday' day={1} type='number'/>
     <Input suffix='hours' handleInput={handleInput} label='Wednesday' day={2} type='number'/>
@@ -71,7 +71,7 @@
     <Input suffix='hours' handleInput={handleInput} label='Saturday' day={5} type='number'/>
     <Input suffix='hours' handleInput={handleInput} label='Sunday' day={6} type='number'/>
   </div>
-  <div class="grid gap-2 fit-content">
+  <div class="grid gap-2 fit-content sm:justify-center">
     <DateInput handleInput={handleStartDate} label='Start Date:' />
     <DateInput handleInput={handleEndDate} label='End Date:' />
     <div class="mt-8 text-2xl font-bold">Total <span class="text-emerald-600">{totalUnits}</span> units</div>
