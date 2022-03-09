@@ -54,5 +54,13 @@ export default [
       label: 'Visit 3BL Media',
       url: 'https://www.3blmedia.com/'
     }
+  },
+  {
+    heading: 'Caron',
+    description: 'Real Results. Real Care. Real About Recovery.',
+    link: {
+      label: 'Vist Caron',
+      url: 'https://www.caron.org/'
+    }
   }
 ];
