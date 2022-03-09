@@ -9,9 +9,10 @@
     <h3 class="text-xl font-semibold">{heading}</h3>
     <p class="mt-2 flex-1">{description}</p>
     <a class="
-      bg-emerald-500 mt-4 max-w-fit py-1 px-2
-      shadow-sm border-2 border-solid border-emerald-500 rounded
-      text-slate-50 hover:bg-emerald-700 hover:border-emerald-700
+      bg-white mt-4 max-w-fit py-1 px-2
+      rounded 
+      hover:bg-emerald-500
+      hover:text-slate-50
       transition
       "
       href="{link.url}" target="_blank">
