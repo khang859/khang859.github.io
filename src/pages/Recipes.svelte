@@ -1,6 +1,6 @@
 <script>
   import { recipeDb } from '../utils/indexeddb';
-  import { markdown } from 'markdown';
+  import MarkdownIt from 'markdown-it';
   import Modal from '../components/Modal.svelte';
   import Fuse from 'fuse.js'
   import { beforeUpdate, tick } from 'svelte';
@@ -11,6 +11,8 @@
   let searchBox;
   let nameError = false;
   let removeItemId;
+
+  const md = new MarkdownIt();
 
   const getListFromDB = async () => {
     const items = await recipeDb.recipe.reverse().toArray();
@@ -121,7 +123,7 @@
 
       setTimeout(() => {
         btn.disabled = false;
-      }, 1000)
+      }, 500)
     }
   })
 
@@ -179,7 +181,7 @@
             mb-4
           ">
           <h3 class="flex-1 mb-4 font-semibold text-lg">{item.name}</h3>
-          <div class="recipe-styles flex-1 mb-4 md:ml-4">{@html markdown.toHTML(item.recipe)}</div>
+          <div class="recipe-styles flex-1 mb-4 md:ml-4">{@html md.render(item.recipe)}</div>
           <div class="flex justify-end">
             <button on:click={() => {
               removeItemId = undefined
