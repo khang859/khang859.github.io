@@ -7,6 +7,7 @@
   import About from "./pages/About.svelte";
   import RandomApps from "./pages/RandomApps.svelte";
   import DurationCalculator from "./pages/DurationCalculator.svelte";
+  import CodeEditor from "./pages/CodeEditor.svelte";
 
   let page;
   let currentPage = 'HOME';
@@ -38,6 +39,11 @@
   router('/app/duration-calculator', () => {
     currentPage = 'RANDOM_APPS';
     page = DurationCalculator;
+  });
+
+  router('/app/code-editor', () => {
+    currentPage = 'RANDOM_APPS';
+    page = CodeEditor;
   });
 
   router.start()
