@@ -1,11 +1,9 @@
 <script>
-  import router from "page";
   import Card from '../components/Card.svelte';
 </script>
 
 <section class="text-center mb-8">
   <h1 class="text-2xl font-bold my-4">Random apps I made for random things I need.</h1>
-  <p>All the apps are using IndexedDB, so it only live in your browser.</p>
 </section>
 <section class="flex flex-col sm:flex-row w-full justify-center mx-auto my-8 grid grid-cols-1 md:grid-cols-3 md:gap-5">
   <div class="flex flex-1 w-full m-2 justify-center">
@@ -35,13 +33,13 @@
       description="Probably not for most people"
     />
   </div>
-  <div class="flex flex-1 w-full m-2 justify-center">
+  <div>
     <Card link={{
-        url: '/app/code-editor',
-        label: 'Go to Code Editor'
+        url: 'https://www.quicklistshare.com/',
+        label: 'Quick List Share'
       }}
-      heading='Code Editor'
-      description="Edit some code."
+      heading="Quick List Share"
+      description="Need to quickly share a todo list?"
     />
   </div>
 </section>
